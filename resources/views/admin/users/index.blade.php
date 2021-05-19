@@ -1,4 +1,4 @@
-@extends('adminite::page')
+@extends('adminlte::page')
 
 @section('title', 'Usuarios')
 
