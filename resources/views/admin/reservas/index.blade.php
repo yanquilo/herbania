@@ -14,6 +14,7 @@
     <thead>
         <tr>
             <th>ID</th>
+            <th>DNI/NIE</th>
             <th>Fecha</th>
             <th>Hora</th>
             <th>Opciones</th>
@@ -25,25 +26,20 @@
 
         <tr>
             <td>{{$reserva->idreservas}}</td>
+            <td>{{$reserva->dniNie}}</td>
             <td>{{$reserva->date}}</td>
             <td>{{$reserva->time}}</td>
-            <td><a href="{{ url('admin/cliente/edit').'/'.$reserva->idreservas }}" class="button btn btn-default" style="background-color: black; color: white">Modificar</a></td>
-            <td>
-                <form method="POST" action="{{url('admin/cliente/delete').'/'.$reserva->idreservas}}" style="display:inline">
-                    @method('DELETE')
-                    @csrf
-
-                    <button type="submit" class="btn btn-danger" role="button" style="background-color: red; color: white;">
-                        Cancelar
-                    </button>
-                </form>
-            </td>
+            <td><a href="{{ url('cliente/edit') }}" class="button btn btn-default" style="background-color: black; color: white">Modificar</a></td>
+            @method('DELETE')
+            <td><button type="submit" class="btn btn-danger" role="button" style="background-color: red; color: black;">
+                    Cancelar
+            </button></td>
         </tr>
         @endforeach
     </tbody>
 
 </table>
-<a href="{{ url('/admin/cliente/create') }}" class="button btn btn-default" style="background-color: yellow; color: black">Reservar</a>
+
 @endsection
 
 @section('js')
